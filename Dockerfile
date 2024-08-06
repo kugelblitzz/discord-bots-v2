@@ -11,4 +11,4 @@ ADD https://github.com/jagrosh/MusicBot/releases/download/0.4.3/JMusicBot-0.4.3.
 COPY serversettings.json /app/serversettings.json
 
 # Run the bot
-CMD ["java", "-jar", "/app/JMusicBot-0.4.3.jar"]
+CMD ["java", "-Dnogui=true", "-jar", "/app/JMusicBot-0.4.3.jar"]
