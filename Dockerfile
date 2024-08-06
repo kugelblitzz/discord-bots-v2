@@ -1,6 +1,9 @@
 # Use an openjdk base image
 FROM openjdk:8-jre-alpine
 
+# Create a user and group to run the application
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+
 # Set the working directory
 WORKDIR /app
 
