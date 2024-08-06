@@ -2,7 +2,7 @@
 FROM openjdk:8-jre-alpine
 
 # Create a user and group to run the application
-RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+RUN addgroup -g 10001 appgroup && adduser -u 10001 -G appgroup -s /bin/sh -D appuser
 
 # Set the working directory
 WORKDIR /app
@@ -20,7 +20,7 @@ COPY config.txt /app/config.txt
 RUN chown -R appuser:appgroup /app
 
 # Switch to the appuser
-USER appuser
+USER 10001
 
 # Run the bot
 CMD ["java", "-Dnogui=true", "-jar", "/app/JMusicBot-0.4.3.jar"]
