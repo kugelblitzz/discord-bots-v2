@@ -26,4 +26,4 @@ RUN chown -R appuser:appgroup /app && chmod -R u+w /app
 USER 10001
 
 # Run the bot
-CMD ["java", "-Dnogui=true", "$JAVA_OPTS", "-Dtoken=$TOKEN", "-jar", "/app/JMusicBot.jar"]
+CMD ["sh", "-c", "java -Dnogui=true $JAVA_OPTS -Dtoken=$TOKEN -jar /app/JMusicBot.jar"]
