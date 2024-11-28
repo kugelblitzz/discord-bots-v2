@@ -1,5 +1,5 @@
-# Use an ARM-compatible base image for Raspberry Pi
-FROM arm32v7/openjdk:8-jre-alpine
+# Use an ARM64-compatible base image for Raspberry Pi
+FROM arm64v8/openjdk:8-jre-alpine
 
 # Create a user and group to run the application
 RUN addgroup -g 10001 appgroup && adduser -u 10001 -G appgroup -s /bin/sh -D appuser
