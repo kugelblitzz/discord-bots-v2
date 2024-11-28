@@ -23,4 +23,5 @@ RUN chown -R appuser:appgroup /app
 USER 10001
 
 # Run the bot
-CMD ["java", "-Dnogui=true", "-jar", "/app/JMusicBot-0.4.3.jar"]
+CMD ["java", "-Dnogui=true", "-Dtoken=$TOKEN", "-jar", "/app/JMusicBot-0.4.3.jar"]
+ 
