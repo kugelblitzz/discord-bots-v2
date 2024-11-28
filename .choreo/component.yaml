@@ -6,4 +6,7 @@ endpoints:
   # +required Unique name for the endpoint. (This name will be used when generating the managed API)
   - name: cdp
     # +required Numeric port value that gets exposed via this endpoint
-    port: 8080
+    service:
+      port: 8080
+
+    type: REST
