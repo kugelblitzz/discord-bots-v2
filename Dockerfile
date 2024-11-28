@@ -1,5 +1,5 @@
 # Use an ARM64-compatible base image with OpenJDK 17
-FROM arm64v8/openjdk:17-jre-alpine
+FROM openjdk:17-jre-alpine
 
 # Create a user and group to run the application
 RUN addgroup -g 10001 appgroup && adduser -u 10001 -G appgroup -s /bin/sh -D appuser
