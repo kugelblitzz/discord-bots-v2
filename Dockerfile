@@ -4,24 +4,26 @@ FROM openjdk:8-jre-alpine
 # Create a user and group to run the application
 RUN addgroup -g 10001 appgroup && adduser -u 10001 -G appgroup -s /bin/sh -D appuser
 
+# Set environment variables
+ENV TOKEN=""
+ENV JAVA_OPTS=""
+ARG JMUSICBOT_VERSION=0.4.3
+
 # Set the working directory
 WORKDIR /app
 
 # Download JMusicBot jar file
-ADD https://github.com/jagrosh/MusicBot/releases/download/0.4.3/JMusicBot-0.4.3.jar /app/JMusicBot-0.4.3.jar
+ADD https://github.com/jagrosh/MusicBot/releases/download/$JMUSICBOT_VERSION/JMusicBot-$JMUSICBOT_VERSION.jar /app/JMusicBot.jar
 
-# Copy serversettings.json from the same directory as the Dockerfile
+# Copy configuration files
 COPY serversettings.json /app/serversettings.json
-
-# Copy config.txt from the same directory as the Dockerfile
 COPY config.txt /app/config.txt 
 
-# Change ownership of the /app directory to the appuser
-RUN chown -R appuser:appgroup /app
+# Change ownership and permissions
+RUN chown -R appuser:appgroup /app && chmod -R u+w /app
 
 # Switch to the appuser
 USER 10001
 
 # Run the bot
-CMD ["java", "-Dnogui=true", "-Dtoken=$TOKEN", "-jar", "/app/JMusicBot-0.4.3.jar"]
- 
+CMD ["java", "-Dnogui=true", "$JAVA_OPTS", "-Dtoken=$TOKEN", "-jar", "/app/JMusicBot.jar"]
