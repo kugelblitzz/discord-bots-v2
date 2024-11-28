@@ -1,13 +1,7 @@
-# +required Version of the endpoint configuration YAML
-version: 0.1
-
-# +required List of endpoints to create
+schemaVersion: 1.0 
+ # Example endpoint configuration
 endpoints:
-  # +required Unique name for the endpoint. (This name will be used when generating the managed API)
-  - name: dbcc
-    # +required Numeric port value that gets exposed via this endpoint
-    port: 8080
-    # +required Type of the traffic this endpoint is accepting. Example: REST, GraphQL, etc.
-    # Allowed values: REST, GraphQL, GRPC
-    type: REST
-    # +optional Network level visibilit
+- name: my-service-endpoint
+  service:
+     port: 8080
+  type: REST
