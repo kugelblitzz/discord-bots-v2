@@ -1,5 +1,5 @@
-# Use an openjdk base image
-FROM openjdk:8-jre-alpine
+# Use an ARM-compatible base image for Raspberry Pi
+FROM arm32v7/openjdk:8-jre-alpine
 
 # Create a user and group to run the application
 RUN addgroup -g 10001 appgroup && adduser -u 10001 -G appgroup -s /bin/sh -D appuser
@@ -15,7 +15,7 @@ WORKDIR /app
 # Download JMusicBot jar file
 ADD https://github.com/jagrosh/MusicBot/releases/download/$JMUSICBOT_VERSION/JMusicBot-$JMUSICBOT_VERSION.jar /app/JMusicBot.jar
 
-# Copy configuration files
+# Copy configuration files into the image
 COPY serversettings.json /app/serversettings.json
 COPY config.txt /app/config.txt 
 
