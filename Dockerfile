@@ -14,7 +14,7 @@ ARG JMUSICBOT_VERSION=0.4.3
 WORKDIR /app
 
 # Download JMusicBot jar file
-ADD https://github.com/MichailiK/MusicBot/releases/download/0.4.0-on-lavaplayer-youtube-source-1.0.4/JMusicBot-0.4.0-on-lavaplayer-youtube-source-1.0.4.jar /app/JMusicBot.jar
+ADD https://github.com/jagrosh/MusicBot/releases/download/0.4.1/JMusicBot-0.4.1.jar /app/JMusicBot.jar
 
 # Copy configuration files into the image
 COPY serversettings.json /app/serversettings.json
