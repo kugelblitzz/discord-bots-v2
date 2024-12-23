@@ -18,7 +18,7 @@ ADD https://github.com/SeVile/MusicBot/releases/download/0.4.3.2/JMusicBot-0.4.3
 
 # Copy configuration files into the image
 COPY serversettings.json /app/serversettings.json
-COPY config.txt /app/config.txt 
+#COPY config.txt /app/config.txt 
 
 # Change ownership and permissions
 RUN chown -R appuser:appgroup /app
@@ -27,4 +27,4 @@ RUN chown -R appuser:appgroup /app
 USER 10001
 
 # Run the bot
-CMD ["sh", "-c", "java -Dnogui=true $JAVA_OPTS -Dtoken=$TOKEN -Dytpotoken=$ytpotoken -Dytvisitordata=$ytvisitordata -jar /app/JMusicBot.jar"]
+CMD ["sh", "-c", "java -Dnogui=true $JAVA_OPTS -Dtoken=$TOKEN -jar /app/JMusicBot.jar"]
