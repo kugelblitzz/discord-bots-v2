@@ -14,7 +14,7 @@ ARG JMUSICBOT_VERSION=0.4.3
 WORKDIR /app
 
 # Download JMusicBot jar file
-ADD https://github.com/jagrosh/MusicBot/releases/download/0.4.1/JMusicBot-0.4.1.jar /app/JMusicBot.jar
+ADD https://github.com/SeVile/MusicBot/releases/download/0.4.3.2/JMusicBot-0.4.3.2.jar /app/JMusicBot.jar
 
 # Copy configuration files into the image
 COPY serversettings.json /app/serversettings.json
@@ -27,4 +27,4 @@ RUN chown -R appuser:appgroup /app
 USER 10001
 
 # Run the bot
-CMD ["sh", "-c", "java -Dnogui=true $JAVA_OPTS -Dtoken=$TOKEN -jar /app/JMusicBot.jar"]
+CMD ["sh", "-c", "java -Dnogui=true $JAVA_OPTS -Dtoken=$TOKEN -Dytpotoken=$ytpotoken -Dytvisitordata=$ytvisitordata -jar /app/JMusicBot.jar"]
